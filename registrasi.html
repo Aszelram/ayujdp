@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jembatan Data Pangrango</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-7Fv8jZb/MZUz/oF+JDk3NohihJpOzXZdLsEN5A3tyejYdQOSwp+BWcDHXa4BSQpl" crossorigin="anonymous">
+  
+  <!-- Tambahkan CSS khusus untuk desain -->
+  <style>
+    body {
+      background-color: #f8f9fa; /* Warna latar belakang */
+    }
+    .card {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Efek bayangan kartu */
+    }
+    .card-title {
+      color: #333; /* Warna judul kartu */
+    }
+    .footer {
+      background-color: #007bff; /* Sesuaikan warna latar belakang footer */
+      color: #fff; /* Sesuaikan warna teks footer */
+      text-align: center; /* Pusatkan teks footer */
+    }
+
+    .nav-link {
+        font-weight: bold; /* Membuat teks di navbar lebih tebal */
+    }
+
+    .nav-link.text-warning {
+        color: #ffc107 !important; /* Warna kuning untuk link dashboard */
+    }
+
+    .nav-link.text-primary {
+        color: #007bff !important; /* Warna biru untuk link lainnya */
+    }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand mr-auto" href="#">
+        <img src="img/logojdp.png" width="180" height="35" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+ <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link text-warning" href="registrasi.html">Registrasi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="login.html">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ 
+ <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">Form Registrasi</h2>
+            
+         
+              <div class="alert alert-danger" role="alert">
+                <
+              </div>
+        
+
+            <form id="registrationForm" method="POST" onsubmit="return validateForm()" autocomplete="off">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username Anda" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password Anda" autocomplete="new-password">
+              </div>
+              <div class="form-group">
+                <label for="namaLengkap">Nama Lengkap</label>
+                <input type="text" class="form-control" id="namaLengkap" name="namaLengkap" placeholder="Tulis nama lengkap Anda" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="nomorHP">Nomor HP</label>
+                <input type="text" class="form-control" id="nomorHP" name="nomorHP" placeholder="Masukkan nomor HP Anda" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email Anda" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="layanan">Pilih Layanan</label>
+                <select class="form-control" id="layanan" name="layanan">
+                  <option value="">-- Pilih Layanan Bandwith--</option>
+                  <option value="HOME 1 Up to 7 Mbps">HOME 1 Up to 7 Mbps</option>
+                  <option value="HOME 2 Up to 15 Mbps">HOME 2 Up to 15 Mbps</option>
+                  <option value="SOHO Up to 25 Mbps">SOHO Up to 25 Mbps</option>
+                  <option value="FPAKET DEDDICATE CORPORATE">PAKET DEDDICATE CORPORATE</option>
+                  <!-- Tambahkan pilihan layanan lain jika perlu -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="kotaKabupaten">Kota / Kabupaten</label>
+                <select class="form-control" id="kotaKabupaten" name="kotaKabupaten">
+                  <option value="">-- Pilih Kota / Kabupaten --</option>
+                  <option value="Kota Sukabumi">Kota Sukabumi</option>
+                  <option value="Kabupaten Sukabumi">Kabupaten Sukabumi</option>
+                  <!-- Tambahkan pilihan kota / kabupaten lain jika perlu -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="kecamatan">Kecamatan</label>
+                <select class="form-control" id="kecamatan" name="kecamatan" onchange="updateDesa()">
+                  <option value="">-- Pilih Kecamatan --</option>
+                  <option value="cicantayan">Cicantayan</option>
+                  <option value="cisaat">Cisaat</option>
+                  <option value="kadudampit">Kadudampit</option>
+                  <option value="caringin">Caringin</option>
+                </select>
+              </div>
+               <div class="form-group">
+                <label for="desa">Desa</label> <!-- Mengubah provinsi menjadi desa -->
+                <select class="form-control" id="desa" name="desa">
+                  <option value="">-- Pilih Desa --</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="alamat">Alamat Pemasangan</label>
+                <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap pemasangan"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bagian Footer -->
+<footer class="footer mt-5 py-3">
+    <div class="container">
+      <span>Copyright © 2024 - PT. Jembatan Data Pangrango </span>
+    </div>
+  </footer>
+  <!-- Memasukkan Bootstrap JS dari CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha384-rV9CFYPtLBULj7PkhfLtTHjV2zVHGzmy8pFsdGf2yd3pJ9CspmVJNk7AAFF+Y5R6" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" integrity="sha384-2nGTxOY8Jh3+hs9klxl5/C65f66f9iTjofYAn2TzFbRbYpx3eB2HtvvGLmoazFby" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha384-P8I8m8+q9/SFboJXCFZKxyUnXUgznU3HK+rZJjqcsl4BaY8a8FDN8S8ae5C/yJiR" crossorigin="anonymous"></script>
+
+  <!-- Tambahkan JavaScript khusus untuk interaksi -->
+<script>
+    // Fungsi untuk validasi form
+    function validateForm() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const namaLengkap = document.getElementById('namaLengkap').value;
+      const nomorHP = document.getElementById('nomorHP').value;
+      const email = document.getElementById('email').value;
+      const layanan = document.getElementById('layanan').value;
+      const desa = document.getElementById('desa').value;
+      const kotaKabupaten = document.getElementById('kotaKabupaten').value;
+      const kecamatan = document.getElementById('kecamatan').value;
+      const alamat = document.getElementById('alamat').value;
+
+      if (!username || !password || !namaLengkap || !nomorHP || !email || !layanan || !desa || !kotaKabupaten || !kecamatan || !alamat) {
+        alert('Semua kolom harus diisi');
+        return false;
+      }
+
+      // Tambahkan validasi lain jika perlu
+
+      return true;
+    }
+
+    // Fungsi untuk memperbarui pilihan desa berdasarkan kecamatan
+    function updateDesa() {
+      const kecamatan = document.getElementById('kecamatan').value;
+      const desaSelect = document.getElementById('desa');
+      desaSelect.innerHTML = ''; // Hapus semua opsi sebelumnya
+
+      // Tambahkan opsi default
+      desaSelect.innerHTML += '<option value="">-- Pilih Desa --</option>';
+
+      if (kecamatan === 'cicantayan') {
+        desaSelect.innerHTML += '<option value="cicantayan">Cicantayan</option>';
+        desaSelect.innerHTML += '<option value="cijalingan">Cijalingan</option>';
+        desaSelect.innerHTML += '<option value="cimahi">Cimahi</option>';
+        desaSelect.innerHTML += '<option value="cimanggis">Cimanggis</option>';
+        desaSelect.innerHTML += '<option value="cisande">Cisande</option>';
+        desaSelect.innerHTML += '<option value="hegarmanah">Hegarmanah</option>';
+        desaSelect.innerHTML += '<option value="lembursawah">Lembursawah</option>';
+        desaSelect.innerHTML += '<option value="sukadamai">Sukadamai</option>';
+      } else if (kecamatan === 'cisaat') {
+        desaSelect.innerHTML += '<option value="babakan">Babakan</option>';
+        desaSelect.innerHTML += '<option value="cibatu">Cibatu</option>';
+        desaSelect.innerHTML += '<option value="cibolang kaler">Cibolang Kaler</option>';
+        desaSelect.innerHTML += '<option value="cisaat">Cisaat</option>';
+        desaSelect.innerHTML += '<option value="gunungjaya">Gunungjaya</option>';
+        desaSelect.innerHTML += '<option value="kutasirna">Kutasirna</option>';
+        desaSelect.innerHTML += '<option value="nagrak">Nagrak</option>';
+        desaSelect.innerHTML += '<option value="padaasih">Padaasih</option>';
+        desaSelect.innerHTML += '<option value="selajambe">Selajambe</option>';
+      } else if (kecamatan === 'kadudampit') {
+        desaSelect.innerHTML += '<option value="cikahuripan">Cikahuripan</option>';
+        desaSelect.innerHTML += '<option value="cipetir">Cipetir</option>';
+        desaSelect.innerHTML += '<option value="citamiang">Citamiang</option>';
+        desaSelect.innerHTML += '<option value="gede">Gede</option>';
+        desaSelect.innerHTML += '<option value="pangrango">Pangrango</option>';
+        desaSelect.innerHTML += '<option value="kadudampit">Kadudampit</option>';
+        desaSelect.innerHTML += '<option value="muaradua">Muaradua</option>';
+        desaSelect.innerHTML += '<option value="sukamaju">Sukamaju</option>';
+        desaSelect.innerHTML += '<option value="sukamanis">Sukamanis</option>';
+        desaSelect.innerHTML += '<option value="undrus">Undrus</option>';
+        desaSelect.innerHTML += '<option value="binangun">Binangun</option>';
+      } else if (kecamatan === 'caringin') {
+        desaSelect.innerHTML += '<option value="caringin kulon">Caringin Kulon</option>';
+        desaSelect.innerHTML += '<option value="caringin wetan">Caringin Wetan</option>';
+        desaSelect.innerHTML += '<option value="cijengkol">Cijengkol</option>';
+        desaSelect.innerHTML += '<option value="cikembang">Cikembang</option>';
+        desaSelect.innerHTML += '<option value="mekarjaya">Mekarjaya</option>';
+        desaSelect.innerHTML += '<option value="pasirdatar indah">Pasirdatar Indah</option>';
+        desaSelect.innerHTML += '<option value="seuseupan">Seuseupan</option>';
+        desaSelect.innerHTML += '<option value="sukamulya">Sukamulya</option>';
+        desaSelect.innerHTML += '<option value="talaga">Talaga</option>';
+      }
+    }
+
+    // Panggil fungsi updateDesa saat halaman dimuat dan saat kecamatan berubah
+    document.addEventListener('DOMContentLoaded', function() {
+      const kecamatanSelect = document.getElementById('kecamatan');
+      kecamatanSelect.addEventListener('change', updateDesa);
+
+      updateDesa(); // Inisialisasi pilihan desa saat halaman dimuat
+    });
+  </script>
+
+</body>
+</html>

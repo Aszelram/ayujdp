@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Jembatan Data Pangrango</title>
+  <!-- Memasukkan Bootstrap CSS -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-7Fv8jZb/MZUz/oF+JDk3NohihJpOzXZdLsEN5A3tyejYdQOSwp+BWcDHXa4BSQpl" crossorigin="anonymous">
+   <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .login-container {
+      margin-top: 50px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      background-color: #fff;
+    }
+    .login-form {
+      max-width: 400px;
+      margin: auto;
+    }
+    .login-form h2 {
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .btn-primary {
+      width: 100%;
+    }
+    .footer {
+      background-color: #007bff; /* Sesuaikan warna latar belakang footer */
+      color: #fff; /* Sesuaikan warna teks footer */
+      text-align: center; /* Pusatkan teks footer */
+    }
+
+    .nav-link {
+        font-weight: bold; /* Membuat teks di navbar lebih tebal */
+    }
+
+    .nav-link.text-warning {
+        color: #ffc107 !important; /* Warna kuning untuk link dashboard */
+    }
+
+    .nav-link.text-primary {
+        color: #007bff !important; /* Warna biru untuk link lainnya */
+    }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand mr-auto" href="#">
+        <img src="img/logojdp.png" width="180" height="35" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+ <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="registrasi.html">Registrasi</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link text-warning" href="login.html">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="login-container">
+          <h2 class="text-center">Login</h2>
+   
+            <div class="alert alert-danger mt-3">
+              <
+            </div>
+          <
+          <form class="login-form" action="login.html" method="POST" onsubmit="return validateForm()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username Anda" required autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password Anda" required autocomplete="off">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <div id="error-message" class="text-danger mt-2"></div>
+            <br>
+             <p>Silakan daftar <a href="registrasi.html">di sini</a> atau kembali ke <a href="index.html">Home</a>.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+<br>
+
+  <!-- Footer -->
+ <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text">Copyright © 2024 - PT. Jembatan Data Pangrango </span>
+    </div>
+  </footer>
+      <!-- Memasukkan Bootstrap JS dari CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha384-rV9CFYPtLBULj7PkhfLtTHjV2zVHGzmy8pFsdGf2yd3pJ9CspmVJNk7AAFF+Y5R6" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" integrity="sha384-2nGTxOY8Jh3+hs9klxl5/C65f66f9iTjofYAn2TzFbRbYpx3eB2HtvvGLmoazFby" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha384-P8I8m8+q9/SFboJXCFZKxyUnXUgznU3HK+rZJjqcsl4BaY8a8FDN8S8ae5C/yJiR" crossorigin="anonymous"></script>
+
+  <script>
+    // Setelah halaman dimuat, ubah atribut autocomplete pada input username dan password
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('username').setAttribute('autocomplete', 'off');
+      document.getElementById('password').setAttribute('autocomplete', 'off');
+    });
+
+    function validateForm() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      if (username.trim() === '' || password.trim() === '') {
+        document.getElementById('error-message').innerText = 'Username dan password harus diisi.';
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>
